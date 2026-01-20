@@ -1,113 +1,255 @@
 <!DOCTYPE html>
-<!--
-    Plain-Academic by Vasilios Mavroudis
-    Released under the Simplified BSD License/FreeBSD (2-clause) License.
-    https://github.com/mavroudisv/plain-academic
--->
-
 <html lang="en">
 <head>
-  <title>John Doe</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Fira+Sans&display=swap" rel="stylesheet">
+    
+    <title>J. N. Bastos Fonseca - Personal Website</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #ffc96cac;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .content-wrapper {
+            display: flex;
+            flex-direction: row;
+            max-width: 800px;
+            width: 100%;
+            gap: 20px;
+        }
+        .left {
+            flex: 1;
+            text-align: left;
+        }
+        .right {
+            flex-shrink: 0;
+        }
+        h1 {
+            color: #2c3e50;
+            margin: 0 0 15px 0;
+            font-size: 24px;
+            font-family: "Amiri", "Times New Roman", serif;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        li::before {
+            content: "❧";
+            margin-right: 8px;
+            color: #2c3e50;
+        }
+        a {
+            color: #2c3e50;
+            text-decoration: underline;
+        }
+        a:hover {
+            color: #1a252f;
+        }
+        .photo {
+            text-align: center;
+        }
+        .photo img {
+            width: 200px;
+            height: 200px;
+            border-radius: 20%;
+            object-fit: cover;
+            border: 4px solid #fff;
+        }
+        figcaption {
+            font-style: italic;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        @media (max-width: 600px) {
+            .content-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+            .left {
+                text-align: center;
+            }
+        }
+
+        /* Nature Elements */
+        .nature-element {
+            position: fixed;
+            font-size: 18px;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.25;
+            user-select: none;
+        }
+</style>
 </head>
 <body>
-
-
-<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-	  <div class="container">
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  <ul class="nav navbar-nav">
-				  <li><a href="index.html">Home</a></li>
-				  <li><a href="#">Projects</a></li>
-				  <li><a href="#publications">Publications</a></li> 
-				  <li><a href="#">CV</a></li> 
-		  </ul>
-		</div>
-	  </div>
-	</nav>
-  
-  <!-- Page Content -->
-    <div class="container">
-
-        <div class="row">
-
-            <!-- Entries Column -->
-            <div class="col-md-8" style="height: 100vh;">
-                
-                <!-- Main Image -->
-                <img class="img-responsive" src="photo.gif" alt=""><br>
-                
-                <div style="margin-top:3%; text-align:justify;">                
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing <a href="#">elit</a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					
-					<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-					
-					<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                </div>
-            </div> 
-
-            <!-- Contact Info on the Sidebar -->
-            <div class="col-md-4">
-                <div style="font-family: 'Oswald', sans-serif; font-size: 32px;"><b>John Doe</b></div><br>
-                <p><b>john at doe.com</b><br>
-                <p>Random Department<br>
-                University of Randomness<br>
-                Street<br>
-                City <br>
-                Country<br>
-                </p>
-            </div>
-            
-            
-            <!-- Links on the Sidebar -->
-            <div class="col-md-4" style="margin-top:2%">
-              <dd><a href="#">Google Scholar</a></dd> 
-              <dd><a href="#">Twitter</a></dd>
-              <dd><a href="#">LinkedIn</a></dd>
-            </div>
-            
-            
-            <!-- Publications -->
-            <div class="col-md-8" style="height: 100vh;">    
-                <h2 id="publications">Publications</h2>
-                
-                <strong>Peer-reviewed</strong><br/>
-                <ul>
-                <li class="paper" words="add, your, keywords, here"><a href="#">Full title</a> Names of the authors</li>
-                </ul>
-            
-                <strong>Technical Reports</strong><br/>
-                <ul>
-                <li class="paper" words="add, your, keywords, here"><a href="#">Full title</a>. Details of the report</li>
-                </ul>
-            </div>
-
-            
+    <div class="content-wrapper">
+        <div class="left">
+            <h1>J. N. Bastos Fonseca</h1>
+            <ul>
+                <li>
+                    I study how social media impacts societies and how algorithmic recommendations shape information spreading.
+                </li>
+                <li>
+                    Currently, I am a PhD student at the 
+                    <a href="https://www.sias-uva.nl/">Socially Intelligent 
+                      Artificial Systems (SIAS) Group</a> and the 
+                    <a href="https://fp-santos.github.io/lab/">Prosocial Dynamics lab</a>, 
+                    at the University of Amsterdam. My supervisor is 
+                    <a href="https://fp-santos.github.io/">Prof. Fernando P. Santos</a>.
+                </li>
+                <li>
+                    More information can be found on my <a href="https://github.com/JFonseca25">GitHub</a> profile,
+                    and on my <a href="https://www.linkedin.com/in/jo%C3%A3o-fonseca-519198174/">LinkedIn</a> page.
+                </li>
+                <li>
+                    <a href="">Publications (soon)</a>
+                </li>
+                𖡼𖤣𖥧𖡼𓋼𖤣𖥧𓋼𓍊
+            </ul>
         </div>
-
-
+        <div class="right">
+            <figure class="photo">
+                <img src="./assets/DSC00078.jpg" alt="A photo of me">
+                <figcaption>Me in July 2025 (by <a href="https://jmsmit.com/">Martin Smit</a>)</figcaption>
+            </figure>
+        </div>
     </div>
-    <!-- /.container -->
-    
-    <!-- Other people may like it too! -->
-    <a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain Academic</a> 
-    
-</body>
 
+    <div class="nature-element">❦</div>
+    <div class="nature-element">❦</div>
+    <div class="nature-element">❦</div>
+    <div class="nature-element">❦</div>
+    <div class="nature-element">❦</div>
+    <div class="nature-element">❦</div>
+    <div class="nature-element">❀</div>
+    <div class="nature-element">❁</div>
+    <div class="nature-element">✿</div>
+    <div class="nature-element">❀</div>
+    <div class="nature-element">❁</div>
+    <div class="nature-element">✿</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const elements = document.querySelectorAll('.nature-element');
+        const isMobile = window.innerWidth <= 600;
+        
+        // Data for each element
+        const elementData = [];
+
+        // Position leaves randomly, avoiding the center
+        function randomPosition(element) {
+            const bodyHeight = window.innerHeight;
+            const bodyWidth = window.innerWidth;
+            const elementSize = 30;
+
+            let top, left;
+            do {
+                top = Math.random() * (bodyHeight - elementSize * 2);
+                left = Math.random() * (bodyWidth - elementSize * 2);
+            } while ((top > 100 && top < 400) && (left > 200 && left < 600));
+
+            element.style.top = `${top}px`;
+            element.style.left = `${left}px`;
+            
+            return { x: left, y: top };
+        }
+
+        // Initialize each element with position and velocity
+        elements.forEach((element, index) => {
+            const pos = randomPosition(element);
+            elementData[index] = {
+                element: element,
+                x: pos.x,
+                y: pos.y,
+                baseVx: (Math.random() - 0.5) * 0.3, // Base velocity X
+                baseVy: (Math.random() - 0.5) * 0.3, // Base velocity Y
+                vx: 0,
+                vy: 0,
+                repelVx: 0,
+                repelVy: 0
+            };
+        });
+
+        let mouseX = -1000;
+        let mouseY = -1000;
+
+        // Mouse tracking for desktop
+        if (!isMobile) {
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+        }
+
+        // Animation loop
+        function animate() {
+            const bodyHeight = window.innerHeight;
+            const bodyWidth = window.innerWidth;
+
+            elementData.forEach(data => {
+                // Calculate repulsion from mouse (desktop only)
+                if (!isMobile) {
+                    const dx = data.x - mouseX;
+                    const dy = data.y - mouseY;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 300 && distance > 0) {
+                        const repelStrength = (300 - distance) / 300 * 1.5;
+                        data.repelVx = (dx / distance) * repelStrength;
+                        data.repelVy = (dy / distance) * repelStrength;
+                    } else {
+                        // Gradually reduce repulsion
+                        data.repelVx *= 0.85;
+                        data.repelVy *= 0.85;
+                    }
+                }
+
+                // Combine base velocity with repulsion
+                data.vx = data.baseVx + data.repelVx;
+                data.vy = data.baseVy + data.repelVy;
+
+                // Update position
+                data.x += data.vx;
+                data.y += data.vy;
+
+                // Bounce off edges with some padding
+                const padding = 50;
+                if (data.x < -padding || data.x > bodyWidth + padding) {
+                    data.baseVx *= -1;
+                    data.x = Math.max(-padding, Math.min(bodyWidth + padding, data.x));
+                }
+                if (data.y < -padding || data.y > bodyHeight + padding) {
+                    data.baseVy *= -1;
+                    data.y = Math.max(-padding, Math.min(bodyHeight + padding, data.y));
+                }
+
+                // Apply position
+                data.element.style.left = `${data.x}px`;
+                data.element.style.top = `${data.y}px`;
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        // Start animation
+        animate();
+    });
+</script>
+
+  </body>
 </html>
