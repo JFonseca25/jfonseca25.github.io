@@ -57,9 +57,10 @@
         a {
             color: #2c3e50;
             text-decoration: underline;
+            transition: text-shadow 0.2s ease;
         }
         a:hover {
-            color: #1a252f;
+            text-shadow: 0 0 0.4px #2c3e50;
         }
         .photo {
             text-align: center;
@@ -103,20 +104,25 @@
             <h1>João N. B. Fonseca</h1>
             <ul>
                 <li>
-                    I study how social media impacts societies and how algorithmic recommendations shape information spreading.
+                    <i>I study how social media impacts societies and how algorithmic recommendations shape information spreading.</i>
                 </li>
                 <li>
-                    Currently, I am a PhD student at the 
-                    <a href="https://www.sias-uva.nl/">Socially Intelligent 
-                      Artificial Systems (SIAS) Group</a> and the 
+                  Currently, I am a PhD student at the 
+                  <a href="https://www.sias-uva.nl/">Socially Intelligent 
+                    Artificial Systems (SIAS) Group</a> and the 
                     <a href="https://fp-santos.github.io/lab/">Prosocial Dynamics lab</a>, 
                     at the University of Amsterdam. My supervisor is 
                     <a href="https://fp-santos.github.io/">Prof. Fernando P. Santos</a>.
-                </li>
+                  </li>
+                  <li>
+                      To tackle issues arising in these fields, I firmly believe that one must draw
+                      knowledge and practises from multiple disciplines, including the social sciences,
+                      the humanities, and the arts.
+                  </li>
                 <li>
                     More information can be found on my <a href="https://github.com/JFonseca25">GitHub</a> profile,
                     and on my <a href="https://www.linkedin.com/in/jo%C3%A3o-fonseca-519198174/">LinkedIn</a> page.
-                    You can also reach me via <a href="mailto:j.n.bastosfonseca@uva.nl">j.n.bastosfonseca [at] uva.nl</a>.
+                    You can also reach me via <a href="mailto:j.n.bastosfonseca@uva.nl">j.n.bastosfonseca@uva.nl</a>.
                 </li>
                 <li>
                     <a href="">Publications (soon)</a>
@@ -228,15 +234,29 @@
                 data.x += data.vx;
                 data.y += data.vy;
 
-                // Bounce off edges with some padding
-                const padding = 50;
-                if (data.x < -padding || data.x > bodyWidth + padding) {
-                    data.baseVx *= -1;
-                    data.x = Math.max(-padding, Math.min(bodyWidth + padding, data.x));
+                // Bounce off edges - keep elements within viewport
+                const padding = 0;
+                const bounceMultiplier = 1.2; // Adds energy to the bounce
+
+                if (data.x < padding) {
+                    data.baseVx = Math.abs(data.baseVx) * bounceMultiplier;
+                    data.repelVx = Math.abs(data.repelVx) * bounceMultiplier;
+                    data.x = padding;
                 }
-                if (data.y < -padding || data.y > bodyHeight + padding) {
-                    data.baseVy *= -1;
-                    data.y = Math.max(-padding, Math.min(bodyHeight + padding, data.y));
+                if (data.x > bodyWidth - padding) {
+                    data.baseVx = -Math.abs(data.baseVx) * bounceMultiplier;
+                    data.repelVx = -Math.abs(data.repelVx) * bounceMultiplier;
+                    data.x = bodyWidth - padding;
+                }
+                if (data.y < padding) {
+                    data.baseVy = Math.abs(data.baseVy) * bounceMultiplier;
+                    data.repelVy = Math.abs(data.repelVy) * bounceMultiplier;
+                    data.y = padding;
+                }
+                if (data.y > bodyHeight - padding) {
+                    data.baseVy = -Math.abs(data.baseVy) * bounceMultiplier;
+                    data.repelVy = -Math.abs(data.repelVy) * bounceMultiplier;
+                    data.y = bodyHeight - padding;
                 }
 
                 // Apply position
